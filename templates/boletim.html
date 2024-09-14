@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Boletim</title>
+</head>
+<body>
+    <h1>Boletim de {{ data.user_data['nome_usual'] }}</h1>
+    
+    <form action="{{ url_for('boletim') }}" method="GET">
+        <label for="ano_letivo">Selecione o Ano Letivo:</label>
+        <select name="ano_letivo" id="ano_letivo">
+            {% for ano in data["anos_letivos"] %}
+                <option value="{{ ano }}">{{ ano }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Ver Boletim</button>
+    </form>
+    
+    {% if data["boletim"] %}
+        <h2>Boletim de {{ request.args.get('ano_letivo') }}</h2>
+        <ul>
+            {% for item in data["boletim"] %}
+                <li>{{ item['disciplina'] }} : 
+                    
+                    {% if item["media_final_disciplina"] %}
+                        {{ item["media_final_disciplina"] }}
+                    {% else %}
+                        <em>Por enquanto, sem média final</em>
+                    {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
