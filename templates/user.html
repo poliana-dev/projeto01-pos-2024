@@ -6,7 +6,9 @@
 </head>
 <body>
     <h1>Olá, {{ data.user_data["nome_usual"] }}</h1>
+    <img src="{{ data['user_data']['url_foto_150x200'] }}" alt="user-perfil">
     <p>Seu e-mail: {{ data.user_data.email }}</p>
+    <p>Sua matricula: {{ data.user_data.matricula }}</p>
     <a href="{{ url_for('boletim') }}">Ver Boletim</a>
     <a href="{{ url_for('logout') }}">Logout</a>
 </body>
