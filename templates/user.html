@@ -2,14 +2,81 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Bem-vindo</title>
+    <title>Usuário</title>
+    <style>
+        body {
+            
+            background-color: rgb(0, 0, 0);
+            background-image: radial-gradient(circle at center, #000000 80%, #9e53d4);
+        
+        }
+        a{
+            text-decoration: none;
+        }
+        h1 {
+          color: #ffffff;
+          text-align: center;
+        }
+        .titulo{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 30px;
+        }
+        .redonda{
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 25px ridge #9e53d4;
+        }
+        .base{
+            color:white;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin-top: 50px;
+        }
+
+        .logar{
+        background-color: #17ed1f; 
+        color: white; 
+        padding: 15px 32px; 
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .deslogar{
+        background-color: #ff0000; 
+        color: white; 
+        padding: 15px 32px; 
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .nome{
+            color:#9e53d4;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+    </style>
 </head>
 <body>
-    <h1>Olá, {{ data.user_data["nome_usual"] }}</h1>
-    <img src="{{ data['user_data']['url_foto_150x200'] }}" alt="user-perfil">
-    <p>Seu e-mail: {{ data.user_data.email }}</p>
-    <p>Sua matricula: {{ data.user_data.matricula }}</p>
-    <a href="{{ url_for('boletim') }}">Ver Boletim</a>
-    <a href="{{ url_for('logout') }}">Logout</a>
+    <center>
+        <section class="base">
+            <img src="{{ data['user_data']['url_foto_150x200'] }}" alt="user-perfil" class="redonda">
+            <h1 class="titulo">Olá, sou <span class="nome">{{ data.user_data["nome_usual"] }}</span></h1>
+            <p>Meu e-mail é <span class="nome">{{ data.user_data.email }}</span></p>
+            <p>Minha matricula é <span class="nome">{{ data.user_data.matricula }}</span></p>
+            <br>
+            <a href="{{ url_for('boletim') }}"><button class="logar">Boletim</button></a>
+            <a href="{{ url_for('logout') }}"><button class="deslogar">Logout</button></a>
+        </section>
+    </center>
 </body>
 </html>
