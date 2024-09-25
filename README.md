@@ -22,5 +22,5 @@
   ```
 
 # Grupo
-- Participante 01
-- Participante 02
+- Maria Poliana Pinheiro de Paiva
+- Elyabe Bezerra de Medeiros
